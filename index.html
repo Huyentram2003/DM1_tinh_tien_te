@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tinh tien te</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Amount</td>
+        <td> Currency</td>
+        <td> Currency</td>
+    </tr>
+    <tr>
+        <td><input id="s1" type="text" size="20px"></td>
+        <td>
+            <select id="select1">
+                <option value="viet">VietNam</option>
+                <option value="usd">USD</option>
+            </select>
+        </td>
+
+        <td>
+            <select id="select2">
+                <option value="viet">VietNam</option>
+                <option value="usd">USD</option>
+            </select>
+        </td>
+        <td>
+            <button onclick="tienTe()">Convert</button>
+        </td>
+    </tr>
+</table>
+
+<P style="color: blue" id="s3"></P>
+
+<script>
+    function tienTe() {
+        let giaTriVao = document.getElementById('s1').value,
+            select1 = document.getElementById('select1').value,
+            select2 = document.getElementById('select2').value,
+            s3 = document.getElementById('s3').value,
+            don_vi ;
+
+        if (select1 === 'use') {
+            if (select2 === 'viet') {
+                s3 = giaTriVao * 23000;
+                don_vi = 'VND'
+            } else {
+                s3 = giaTriVao ;
+                don_vi = 'USD'
+            }
+        } else {
+            if (select2 === 'viet') {
+                s3 = giaTriVao;
+                don_vi = 'VND'
+            } else {
+                s3 = giaTriVao / 23000 ;
+                don_vi = 'USD'
+            }
+        }
+        document.getElementById('s3').innerHTML = s3 + '' + don_vi
+    }
+</script>
+</body>
+</html>
